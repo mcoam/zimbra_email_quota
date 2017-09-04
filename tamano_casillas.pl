@@ -1,10 +1,11 @@
 #!/usr/bin/perl
 
-my @hostname = `/opt/zimbra/bin/zmprov gas`;
-#print @hostname
+my $zmprov = "/opt/zimbra/bin/"
+my @zimbra_mbxs = `$zmprov gas`;
+#print @zimbra_mbxs
 
-foreach (@hostname) {
-	my @quotas = `/opt/zimbra/bin/zmprov gqu @hostname`;
+foreach (@zimbra_mbxs) {
+	my @quotas = `$zmprov gqu @zimbra_mbxs`;
 #	print @quotas
 print "-------EMAIL------------QUOTA USAGE---------------QUOTA SET------\n";
 
